@@ -73,7 +73,7 @@ f1 <- ggplot(df.fr3, aes(x=bin, y=ratio_centered, group=sample_id, color="Sample
 f1 <- f1 + geom_line(data=healthy_median, aes(x=bin, y=median_ratio_centered, color = "Normal"), size=0.75, alpha=0.6)
 f1 <- f1 + labs(title=id_edited, subtitle="Fraction of small DNA fragments (100–150 bp) to larger DNA fragments (151–220 bp)", x="Chromosome position", y="Fragmentation profile\n", color="Legend")
 f1 <- f1 + facet_grid(~arm, switch="x",space="free_x", scales="free_x", labeller=labeller(arm=arm.labels))
-f1 <- f1 + coord_cartesian(xlim = NULL, ylim=c(-.7,.9), expand = TRUE)
+f1 <- f1 + coord_cartesian(xlim = NULL, ylim=c(-.07,.09), expand = TRUE)
 f1 <- f1 + scale_color_manual(values=colours) + mytheme
 ggsave(file.path(outdir, paste0(id, "_fragment.pdf")), f1, width=17, height=5, units="in")
 
@@ -83,7 +83,7 @@ c1 <- ggplot(df.fr3, aes(x=bin, y=coverage_centered, group=sample_id, color="Sam
 c1 <- c1 + geom_line(data=healthy_median, aes(x=bin, y=median_coverage_centered, color = "Normal"), size=0.75, alpha=0.6)
 c1 <- c1 + labs(title=id_edited, subtitle="Coverage profile of short (≤150 bp) fragments", x="Chromosome position", y="Coverage profile\n", color="Legend")
 c1 <- c1 + facet_grid(~arm, switch="x",space="free_x", scales="free_x", labeller=labeller(arm=arm.labels))
-c1 <- c1 + coord_cartesian(xlim = NULL, ylim=c(-.7,.9), expand = TRUE)
+c1 <- c1 + coord_cartesian(xlim = NULL, ylim=c(-.07,.09), expand = TRUE)
 c1 <- c1 + scale_color_manual(values=colours) + mytheme
 ggsave(file.path(outdir, paste0(id, "_coverage.pdf")), c1, width=17, height=5, units="in")
 
@@ -93,7 +93,7 @@ b1 <- ggplot(df.fr3, aes(x=bin, y=combined_centered, group=sample_id, color="Sam
 b1 <- b1 + geom_line(data=healthy_median, aes(x=bin, y=median_combined_centered, color = "Normal"), size=0.75, alpha=0.6)
 b1 <- b1 + labs(title=id_edited, subtitle="Adjusted ratio of short to long fragments based on GC correction", x="Chromosome position", y="Combined profile\n", color="Legend")
 b1 <- b1 + facet_grid(~arm, switch="x",space="free_x", scales="free_x", labeller=labeller(arm=arm.labels))
-b1 <- b1 + coord_cartesian(xlim = NULL, ylim=c(-.7,.9), expand = TRUE)
+b1 <- b1 + coord_cartesian(xlim = NULL, ylim=c(-.07,.09), expand = TRUE)
 b1 <- b1 + scale_color_manual(values=colours) + mytheme
 ggsave(file.path(outdir, paste0(id, "_combined.pdf")), b1, width=17, height=5, units="in")
 
